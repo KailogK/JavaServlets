@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Register</title>
+        <link rel="stylesheet" href="./css/index.css" type="text/css">
+    </head>
+    <body style="background-image: url(indexbg.jpg);">
+        <div class="login-box">
+            <h2 id="h2">Register</h2>
+			<form method="post" action="Register">
+              <input type="hidden" name="requestType" value="Insert" />
+              <div class="user-box">
+                <input type="text" id="input1" name="username" oninput="check()">
+                <label>Username</label>
+              </div>
+              <div class="user-box">
+                <input type="password" id="input2" name="password" oninput="check()">
+                <label>Password</label>
+              </div>
+              <div class="user-box">
+                <input type="text" id="input3" name="email" oninput="check()">
+                <label>E-mail</label>
+              </div>
+              <center><input type="submit" value="Submit" class="a" id="btn" disabled></center>
+			<center><b href="index.jsp" id="Reg" onmouseover="changeText()" onclick="redirect()">
+                Already having an account ?
+              </b></center>
+            </form>
+          </div>       
+    </body>
+    <script>
+    
+    function changeText() {
+    	var link = document.getElementById("Reg");
+    	link.textContent = "Login";
+    }
+
+    function redirect() {
+       	window.location.href = "index.jsp";
+    }
+    
+      function check() {
+        var input1 = document.getElementById("input1");
+        var input1Value = input1.value;
+  
+        var input2 = document.getElementById("input2");
+        var input2Value = input2.value;
+  
+        var input3 = document.getElementById("input3");
+        var input3Value = input3.value;
+  
+        var button = document.getElementById("btn");
+
+        if (input1Value.length < 6 || input2Value.length < 6 || input3Value.length < 6) {
+          button.disabled = true;
+        }
+        else {
+          button.disabled = false;
+        }
+      }
+    </script>
+</html>
+
+<!-- link used: https://codepen.io/soufiane-khalfaoui-hassani/pen/LYpPWda -->
